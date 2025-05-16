@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Generator - MD5 & SHA256</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hash Generator</h1>
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        
+        <div class="input-section">
+            <div class="input-header">
+                <h3>Input Text</h3>
+                <div class="input-actions">
+                    <button id="clearBtn" class="action-btn" title="Clear input">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button id="pasteBtn" class="action-btn" title="Paste from clipboard">
+                        <i class="fas fa-paste"></i>
+                    </button>
+                </div>
+            </div>
+            <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+            <div class="input-footer">
+                <span id="charCount">0 characters</span>
+                <button id="generateBtn" class="primary-btn">
+                    <i class="fas fa-hashtag"></i> Generate Hashes
+                </button>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <div class="hash-result">
+                <div class="hash-header">
+                    <h3><i class="fas fa-fingerprint"></i> MD5 Hash</h3>
+                    <div class="hash-actions">
+                        <button class="copy-btn" onclick="copyToClipboard('md5Result')" title="Copy MD5 hash">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button class="verify-btn" onclick="verifyHash('md5')" title="Verify MD5 hash">
+                            <i class="fas fa-check"></i> Verify
+                        </button>
+                    </div>
+                </div>
+                <div class="hash-box" id="md5Result"></div>
+            </div>
+
+            <div class="hash-result">
+                <div class="hash-header">
+                    <h3><i class="fas fa-shield-alt"></i> SHA256 Hash</h3>
+                    <div class="hash-actions">
+                        <button class="copy-btn" onclick="copyToClipboard('sha256Result')" title="Copy SHA256 hash">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button class="verify-btn" onclick="verifyHash('sha256')" title="Verify SHA256 hash">
+                            <i class="fas fa-check"></i> Verify
+                        </button>
+                    </div>
+                </div>
+                <div class="hash-box" id="sha256Result"></div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h3><i class="fas fa-history"></i> Recent Hashes</h3>
+            <div id="hashHistory" class="hash-history"></div>
+        </div>
+        <footer class="powered-by">
+            Powered by <a href="https://dynamic.io" target="_blank" rel="noopener noreferrer">Dynamic.IO</a>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
